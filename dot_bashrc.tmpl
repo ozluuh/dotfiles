@@ -1,0 +1,9 @@
+#
+# File loaded on interactive shell sessions.
+#
+# file location: {{ .chezmoi.targetFile | replace .chezmoi.destDir "~" }}
+######################################################################
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+source "${HOME}/.shell/shellrc" || exit 1

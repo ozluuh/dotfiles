@@ -1,0 +1,7 @@
+#
+# Define the bare minimum shell.
+#
+# file location: {{ .chezmoi.targetFile | replace .chezmoi.destDir "~" }}
+######################################################################
+echo "Hello World"
+[[ -f "${HOME}/.shell/envrc" ]] && source "${HOME}/.shell/envrc"

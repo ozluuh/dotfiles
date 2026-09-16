@@ -1,0 +1,7 @@
+#
+# Define the bare minimum environments variables.
+#
+# file location: {{ .chezmoi.targetFile | replace .chezmoi.destDir "~" }}
+######################################################################
+export SHELL_DIR="${SHELL_DIR:-"${HOME}/.shell"}"
+export PATH="~/.local/bin:${PATH}"

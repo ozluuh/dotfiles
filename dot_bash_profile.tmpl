@@ -1,0 +1,6 @@
+#
+# File read on all invocations of the shell.
+#
+# file location: {{ .chezmoi.targetFile | replace .chezmoi.destDir "~" }}
+######################################################################
+[[ -f "${HOME}/.bashrc" ]] && source "${HOME}/.bashrc"
