@@ -1,0 +1,27 @@
+[url "git@github.com:{{ .username }}/"]
+  insteadOf = https://github.com/{{ .username }}/
+
+[user]
+  name = {{ .name }}
+  email = {{ .email }}
+{{- if .gpgKeyId }}
+  signingkey = {{ .gpgKeyId }}
+{{- end }}
+
+[init]
+  defaultBranch = main
+
+[push]
+  default = current
+  autoSetupRemote = true
+
+{{- if .gpgKeyId }}
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = /opt/1Password/op-ssh-sign
+
+[commit]
+  gpgsign = true
+{{ end -}}

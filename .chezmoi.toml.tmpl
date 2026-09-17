@@ -1,0 +1,15 @@
+{{- $email := promptStringOnce . "email" "Email address (git)" -}}
+{{- $name := promptStringOnce . "name" "Full name (git author)" -}}
+{{- $username := promptStringOnce . "username" "Username (github)" -}}
+{{- $gpgKeyId := "" -}}
+{{- if or (lookPath "1password") (lookPath "op") -}}
+{{-   $gpgKeyVault := promptStringOnce . "gpgKeyVault" "Vault URL (Commit Signing Key) [e.g. \"<vault-name>/<item_name>\"]" -}}
+{{-   $gpgKeyUrl := list "op:/" $gpgKeyVault "public_key" | join "/" -}}
+{{-   $gpgKeyId = onepasswordRead $gpgKeyUrl -}}
+{{- end -}}
+
+[data]
+  name = {{ $name | trim | lower | title | quote }}
+  username = {{ $username | trim | quote }}
+  email = {{ $email | trim | lower | quote }}
+  gpgKeyId = {{ $gpgKeyId | trim | quote }}
