@@ -9,6 +9,12 @@ if ! type try_load_file &>/dev/null; then
   echo "Shell initialization failed"
   return
 fi
+#---------- Env -----------------------------------------------------#
+if is_directory "${SHELL_ENV_DIR}"; then
+  for file in ${SHELL_ENV_DIR}/*; do
+    try_load_file "${file}"
+  done
+fi
 #---------- Header --------------------------------------------------#
 if is_directory "${SHELL_HEADER_DIR}"; then
   for file in ${SHELL_HEADER_DIR}/*; do
