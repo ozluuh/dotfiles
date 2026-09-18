@@ -1,3 +1,11 @@
 {{ template "file_title" "Define the bare minimum shell" }}
 {{ template "file_location" . }}
-[[ -f "${HOME}/.shell/envrc" ]] && source "${HOME}/.shell/envrc"
+# These files contain hard-coded values ​​to ensure they can be loaded
+source "${HOME}/.shell/envrc" 2>/dev/null || echo "Shell 'env' not loaded"
+source "${HOME}/.shell/functionsrc" 2>/dev/null || echo "Shell 'functions' not loaded"
+# If the functions are not loaded, cancel the shell initialization.
+if ! type is_empty_string &>/dev/null; then
+  echo "Shell initialization failed"
+  return
+fi
+echo "Shell initialized"
