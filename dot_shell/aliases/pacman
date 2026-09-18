@@ -1,0 +1,5 @@
+! command_exists "pacman" && return
+alias pac-up="sudo pacman -Syu"
+alias pac-add="sudo pacman -Sy"
+alias pac-rm="sudo pacman -Rns"
+alias pac-search="pacman -Ss"

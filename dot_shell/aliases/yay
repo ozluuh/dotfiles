@@ -1,0 +1,6 @@
+! command_exists "yay" && return
+alias aur-init="yay -Y --gendb"
+alias aur-up="yay -Syua --answerclean All --answerdiff None --cleanafter --removemake"
+alias aur-add="yay -Sya --answerclean All --answerdiff None --cleanafter --removemake"
+alias aur-rm="yay -Rns"
+alias aur-search="yay -Ssa"
