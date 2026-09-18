@@ -1,0 +1,17 @@
+{{ template "file_title" "Define the bare minimum shell alias" }}
+{{ template "file_location" . }}
+#---------- Default -------------------------------------------------#
+# mask built-ins with better defaults/configs
+alias ping='ping -c 5'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+#---------- Typos ---------------------------------------------------#
+alias zz='exit'
+alias quit='exit'
+alias sh-reload="exec ${SHELL}"
+alias ..="cd .."
+alias cd..="cd .."
+#---------- Terminal ------------------------------------------------#
+alias exists='command -v'
+alias permissions="stat -c '%a %n'"
+#--------------------------------------------------------------------#

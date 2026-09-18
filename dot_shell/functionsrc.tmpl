@@ -2,4 +2,36 @@
 {{ template "file_location" . }}
 #---------- Base ----------------------------------------------------#
 is_empty_string() { [[ -z "${1}" ]] }
+is_not_empty_string() { [[ -n "${1}" ]] }
+is_equal_string() { [[ "${1}" == "${2}" ]] }
+is_not_equal_string() { [[ "${1}" != "${2}" ]] }
+
+is_equal() { [[ ${1} -eq ${2} ]] }
+is_not_equal() { [[ ${1} -ne ${2} ]] }
+is_lower_than() { [[ ${1} -lt ${2} ]] }
+is_equal_or_lower_than() { [[ ${1} -le ${2} ]] }
+is_greater_than() { [[ ${1} -gt ${2} ]] }
+is_equal_or_greater_than() { [[ ${1} -ge ${2} ]] }
+
+is_file() { is_not_empty_string "${1}" && [[ -f "${1}" ]] }
+is_executable() { is_not_empty_string "${1}" && [[ -x "${1}" ]] }
+is_directory() { is_not_empty_string "${1}" && [[ -d "${1}" ]] }
+is_readable() { is_not_empty_string "${1}" && [[ -r "${1}" ]] }
+is_symlink() { is_not_empty_string "${1}" && [[ -h "${1}" ]] }
+is_non_zero_size() { is_not_empty_string "${1}" && [[ -s "${1}" ]] }
+is_zero_size() { is_not_empty_string "${1}" && [[ ! -s "${1}" ]] }
+
+contains_string() {
+  is_not_empty_string "${1}" && \
+  is_not_empty_string "${2}" && \
+  [[ "${1}" =~ "${2}" ]]
+}
+#---------- Terminal ------------------------------------------------#
+command_exists() { type "${1}" &>/dev/null; }
+
+is_shell() { contains_string "$(ps -p $$ -ocmd=)" "${1}"; }
+is_bash() { is_shell "bash"; }
+is_zsh() { is_shell "zsh"; }
+#---------- File ----------------------------------------------------#
+load_file_if_exists() { is_file "${1}" && source "${1}"; }
 #--------------------------------------------------------------------#

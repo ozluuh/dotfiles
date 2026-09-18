@@ -4,7 +4,7 @@
 source "${HOME}/.shell/envrc" 2>/dev/null || echo "Shell 'env' not loaded"
 source "${HOME}/.shell/functionsrc" 2>/dev/null || echo "Shell 'functions' not loaded"
 # If the functions are not loaded, cancel the shell initialization.
-if ! type is_empty_string &>/dev/null; then
+if ! type load_file_if_exists &>/dev/null; then
   echo "Shell initialization failed"
   return
 fi
