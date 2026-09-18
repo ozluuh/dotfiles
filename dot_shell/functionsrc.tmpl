@@ -47,7 +47,7 @@ to_completion() {
   ensure_dir_exists "${SHELL_DIR_COMPLETION}"
   local filename="${1%% *}"
   eval "${1}" > "${SHELL_DIR_COMPLETION}/${filename}"
-  is_file "${SHELL_DIR_COMPLETION}/${filename}" && \
+  is_non_zero_size "${SHELL_DIR_COMPLETION}/${filename}" && \
     echo "Created '${filename}' in '${SHELL_DIR_COMPLETION}'"
 }
 
@@ -58,6 +58,6 @@ to_completions() {
   fi
   ensure_dir_exists "${SHELL_DIR_COMPLETION}"
   cat > "${SHELL_DIR_COMPLETION}/${1}"
-  is_file "${SHELL_DIR_COMPLETION}/${1}" && echo "Created '${1}' in '${SHELL_DIR_COMPLETION}'"
+  is_non_zero_size "${SHELL_DIR_COMPLETION}/${1}" && echo "Created '${1}' in '${SHELL_DIR_COMPLETION}'"
 }
 #--------------------------------------------------------------------#

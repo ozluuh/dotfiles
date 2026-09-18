@@ -1,7 +1,14 @@
-# Completions
+#---------- Env -----------------------------------------------------#
 export SHELL_DIR_COMPLETION="${XDG_DATA_HOME}/bash-completion/completions"
+#---------- Completions ---------------------------------------------#
+if ! command_exists _completion_loader; then
+  try_load_file "/etc/bash_completion"
+  try_load_file "/usr/share/bash-completion/bash_completion"
+fi
+
 if is_directory "${SHELL_DIR_COMPLETION}"; then
   for file in ${SHELL_DIR_COMPLETION}/*; do
     try_load_file "${file}"
   done
 fi
+#--------------------------------------------------------------------#

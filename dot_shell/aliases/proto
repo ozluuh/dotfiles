@@ -1,0 +1,10 @@
+! command_exists "proto" && return
+alias plm='proto'
+alias plm-add='f(){proto install ${1} ${2:-latest} --pin ${3:-user}};f'
+alias plm-del='f(){proto uninstall ${1}};f'
+alias plm-init="proto regen --bin"
+alias plm-status="proto status"
+alias plm-status-global="proto status --config-mode all"
+alias plm-diagnose="proto diagnose"
+alias plm-pin-base-tool='f(){proto pin ${1} ${2}};f'
+alias plm-plugin-add='f(){proto plugin add ${1} ${2}};f'
