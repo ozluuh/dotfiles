@@ -28,6 +28,8 @@ contains_string() {
 }
 #---------- File ----------------------------------------------------#
 try_load_file() { is_file "${1}" && source "${1}"; }
+#---------- Directory -----------------------------------------------#
+ensure_dir_exists() { is_not_empty_string "${1}" && mkdir -pv "${1}"; }
 #---------- Terminal ------------------------------------------------#
 command_exists() { type "${1}" &>/dev/null; }
 
