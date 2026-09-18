@@ -38,4 +38,26 @@ is_bash() { is_shell "bash"; }
 is_zsh() { is_shell "zsh"; }
 
 try_load_file_if_shell() { is_shell "${1}" && try_load_file "${2}"; }
+
+to_completion() {
+  if is_empty_string "${1}"; then
+    echo "Error: Enter the full command. Ex: to_completion \"my_tool completion bash\"" >&2
+    return 1
+  fi
+  ensure_dir_exists "${SHELL_DIR_COMPLETION}"
+  local filename="${1%% *}"
+  eval "${1}" > "${SHELL_DIR_COMPLETION}/${filename}"
+  is_file "${SHELL_DIR_COMPLETION}/${filename}" && \
+    echo "Created '${filename}' in '${SHELL_DIR_COMPLETION}'"
+}
+
+to_completions() {
+  if is_empty_string "${1}"; then
+    echo "Error: Enter the full command. Ex: my_tool completion bash | to_completions my_tool" >&2
+    return 1
+  fi
+  ensure_dir_exists "${SHELL_DIR_COMPLETION}"
+  cat > "${SHELL_DIR_COMPLETION}/${1}"
+  is_file "${SHELL_DIR_COMPLETION}/${1}" && echo "Created '${1}' in '${SHELL_DIR_COMPLETION}'"
+}
 #--------------------------------------------------------------------#
