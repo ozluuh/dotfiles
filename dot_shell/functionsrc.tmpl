@@ -26,12 +26,14 @@ contains_string() {
   is_not_empty_string "${2}" && \
   [[ "${1}" =~ "${2}" ]]
 }
+#---------- File ----------------------------------------------------#
+try_load_file() { is_file "${1}" && source "${1}"; }
 #---------- Terminal ------------------------------------------------#
 command_exists() { type "${1}" &>/dev/null; }
 
 is_shell() { contains_string "$(ps -p $$ -ocmd=)" "${1}"; }
 is_bash() { is_shell "bash"; }
 is_zsh() { is_shell "zsh"; }
-#---------- File ----------------------------------------------------#
-load_file_if_exists() { is_file "${1}" && source "${1}"; }
+
+try_load_file_if_shell() { is_shell "${1}" && try_load_file "${2}"; }
 #--------------------------------------------------------------------#

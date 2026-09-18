@@ -1,11 +1,25 @@
 {{ template "file_title" "Define the bare minimum shell" }}
 {{ template "file_location" . }}
+#---------- Base ----------------------------------------------------#
 # These files contain hard-coded values ​​to ensure they can be loaded
 source "${HOME}/.shell/envrc" 2>/dev/null || echo "Shell 'env' not loaded"
 source "${HOME}/.shell/functionsrc" 2>/dev/null || echo "Shell 'functions' not loaded"
 # If the functions are not loaded, cancel the shell initialization.
-if ! type load_file_if_exists &>/dev/null; then
+if ! type try_load_file &>/dev/null; then
   echo "Shell initialization failed"
   return
 fi
-echo "Shell initialized"
+#---------- Header --------------------------------------------------#
+if is_directory "${SHELL_HEADER_DIR}"; then
+  for file in ${SHELL_HEADER_DIR}/*; do
+    try_load_file "${file}"
+  done
+fi
+#---------- Footer --------------------------------------------------#
+if is_directory "${SHELL_FOOTER_DIR}"; then
+  for file in ${SHELL_FOOTER_DIR}/*; do
+    try_load_file "${file}"
+  done
+fi
+#--------------------------------------------------------------------#
+try_load_file "${SHELL_DIR}/aliasesrc"

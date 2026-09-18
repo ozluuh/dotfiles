@@ -9,7 +9,11 @@
 export SHELL_VERBOSITY=${SHELL_VERBOSITY:-2}
 
 export SHELL_DIR="${SHELL_DIR:-"${HOME}/.shell"}"
-export SHELL_CONFIG_FILES_DIR="${SHELL_DIR}/.config"
+export SHELL_ALIAS_DIR="${SHELL_DIR}/aliases"
+export SHELL_ENV_DIR="${SHELL_DIR}/envs"
+export SHELL_ACTION_DIR="${SHELL_DIR}/actions" # where shell's store load actions
+export SHELL_HEADER_DIR="${SHELL_DIR}/headers"
+export SHELL_FOOTER_DIR="${SHELL_DIR}/footers"
 
 # Cache to avoid calling repeatedly
 export SHELL_BASENAME="$(basename "$(ps -p $$ -ocmd=)")"
@@ -39,7 +43,5 @@ export XDG_MUSIC_DIR="${XDG_MUSIC_DIR:-"${HOME}/Music"}"
 export XDG_PICTURES_DIR="${XDG_PICTURES_DIR:-"${HOME}/Pictures"}"
 export XDG_VIDEOS_DIR="${XDG_VIDEOS_DIR:-"${HOME}/Videos"}"
 
-# SSH folder
-export SSH_CONFIGS_DIR="${HOME}/.ssh"
-#--------------------------------------------------------------------#
 export PATH="${XDG_BIN_HOME}:${PATH}"
+#--------------------------------------------------------------------#
