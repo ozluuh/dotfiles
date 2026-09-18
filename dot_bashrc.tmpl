@@ -1,8 +1,5 @@
-#
-# File loaded on interactive shell sessions.
-#
-# file location: {{ .chezmoi.targetFile | replace .chezmoi.destDir "~" }}
-######################################################################
+{{ template "file_title" "File loaded on interactive shell sessions" }}
+{{ template "file_location" . }}
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
