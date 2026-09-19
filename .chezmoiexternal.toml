@@ -4,3 +4,6 @@
 [".config/bat/themes/TokyoNight Day.tmTheme"]
   type = "file"
   url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme"
+[".config/eza/theme.yml"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/eza-community/eza-themes/main/themes/tokyonight.yml"
