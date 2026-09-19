@@ -1,0 +1,4 @@
+command_exists "vi" && export EDITOR="vi"
+command_exists "nano" && export EDITOR="nano"
+command_exists "code" && export EDITOR="code --wait"
+is_not_empty_string "${EDITOR}" && export VISUAL="${EDITOR}"
