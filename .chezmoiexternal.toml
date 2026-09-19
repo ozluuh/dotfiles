@@ -1,0 +1,6 @@
+[".config/bat/themes/TokyoNight Night.tmTheme"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme"
+[".config/bat/themes/TokyoNight Day.tmTheme"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme"
