@@ -1,3 +1,5 @@
+{{ template "file_title" }}
+{{ template "file_location" . }}
 ! command_exists "fzf" && return
 alias history="history | fzf"
 alias h="history"

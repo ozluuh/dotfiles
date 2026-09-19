@@ -1,0 +1,8 @@
+{{ template "file_title" }}
+{{ template "file_location" . }}
+if command_exists "vim"; then
+  alias vi="vim"
+fi
+if command_exists "nvim"; then
+  alias vi="nvim"
+fi

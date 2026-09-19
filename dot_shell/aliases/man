@@ -1,3 +1,0 @@
-command_exists "man" && alias help="man"
-command_exists "tldr" && alias help="tldr"
-command_exists "tldr" && alias tldr-init="tldr --update"

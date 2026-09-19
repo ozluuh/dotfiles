@@ -1,3 +1,5 @@
+{{ template "file_title" }}
+{{ template "file_location" . }}
 {{ $cmd := "oh-my-posh" }}
 ! command_exists "{{ $cmd }}" && return
 is_equal_string "${TERM_PROGRAM}" "Apple_Terminal" && return

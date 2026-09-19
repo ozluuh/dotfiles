@@ -1,3 +1,5 @@
+{{ template "file_title" }}
+{{ template "file_location" . }}
 ! command_exists "pacman" && return
 alias pac-up="sudo pacman -Syu"
 alias pac-add="sudo pacman -Sy"

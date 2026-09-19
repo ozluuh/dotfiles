@@ -1,0 +1,9 @@
+{{ template "file_title" }}
+{{ template "file_location" . }}
+if command_exists "man"; then
+  alias help="man"
+fi
+if command_exists "tldr"; then
+  alias help="tldr"
+  alias tldr-init="tldr --update"
+fi

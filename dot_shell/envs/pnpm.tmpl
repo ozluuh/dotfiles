@@ -1,3 +1,5 @@
+{{ template "file_title" }}
+{{ template "file_location" . }}
 if ! command_exists "pnpm" || ! is_directory "${XDG_DATA_HOME}/pnpm"; then
   return
 fi

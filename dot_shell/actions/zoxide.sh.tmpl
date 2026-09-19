@@ -1,3 +1,5 @@
+{{ template "file_title" }}
+{{ template "file_location" . }}
 {{ $cmd := "zoxide" }}
 ! command_exists "{{ $cmd }}" && return
 eval "$({{ $cmd }} init ${SHELL_BASENAME})"

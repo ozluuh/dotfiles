@@ -1,3 +1,4 @@
 #
 # File location: {{ .chezmoi.targetFile | replace .chezmoi.destDir "~" }}
 ######################################################################
+[ -n "${SHELL_PROFILER}" ] && echo "Loading {{ .chezmoi.targetFile | replace .chezmoi.destDir "~" }}"

@@ -1,1 +1,0 @@
-command_exists "tokei" && alias summarize="tokei --sort files"

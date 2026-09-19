@@ -1,3 +1,6 @@
+return
+{{ template "file_title" }}
+{{ template "file_location" . }}
 command_exists "vi" && export EDITOR="vi"
 command_exists "nano" && export EDITOR="nano"
 command_exists "code" && export EDITOR="code --wait"

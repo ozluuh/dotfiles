@@ -1,1 +1,0 @@
-command_exists "cs" && alias cheatsheet="cs"

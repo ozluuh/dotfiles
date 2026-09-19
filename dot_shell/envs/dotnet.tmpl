@@ -1,3 +1,5 @@
+{{ template "file_title" }}
+{{ template "file_location" . }}
 if ! command_exists "dotnet" || ! is_directory "${HOME}/.dotnet"; then
   return
 fi

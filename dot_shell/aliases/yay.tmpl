@@ -1,3 +1,5 @@
+{{ template "file_title" }}
+{{ template "file_location" . }}
 ! command_exists "yay" && return
 alias aur-init="yay -Y --gendb"
 alias aur-up="yay -Syua --answerclean All --answerdiff None --cleanafter --removemake"

@@ -1,0 +1,4 @@
+{{ template "file_title" }}
+{{ template "file_location" . }}
+! command_exists "tokei" && return
+alias summarize="tokei --sort files"
