@@ -1,6 +1,6 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
 ! command_exists "eza" && return
-alias ls="eza --color=always --icons=always --grid --git --no-quotes --group-directories-first --no-filesize --no-time --no-user --no-permissions"
-alias ll="eza --color=always --icons=always --long --git --no-quotes --group-directories-first --no-filesize --header --no-time --no-user --no-permissions"
-alias la="eza --color=always --icons=always --long --git --no-quotes --group-directories-first --header --octal-permissions --all --hyperlink=always --time-style=long-iso --no-user --no-permissions"
+alias ls="eza --color=always --icons=always --grid --all --git --no-quotes --group-directories-first --no-filesize --no-time --no-user --no-permissions"
+alias ll="eza --color=always --icons=always --long --all --git --no-quotes --group-directories-first --no-filesize --header --no-time --no-user --no-permissions"
+alias la="eza --color=always --icons=always --long --all --git --no-quotes --group-directories-first --header --octal-permissions --hyperlink=always --time-style=long-iso --no-user --no-permissions"
