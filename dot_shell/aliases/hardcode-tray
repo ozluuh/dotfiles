@@ -1,0 +1,2 @@
+! command_exists "hardcode-tray" && return
+alias tray-fix="sudo -E hardcode-tray --conversion-tool RSVGConvert --size 22 --dark-theme Papirus-Dark --light-theme Papirus-Light"

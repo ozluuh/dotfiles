@@ -1,0 +1,3 @@
+! command_exists "fzf" && return
+alias history="history | fzf"
+alias h="history"

@@ -1,0 +1,2 @@
+command_exists "vim" && alias vi="vim"
+command_exists "nvim" && alias vi="nvim"

@@ -1,0 +1,3 @@
+! command_exists "rg" && return
+alias rg="rg --pretty --smart-case --glob=!{.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv}"
+alias grep="rg"

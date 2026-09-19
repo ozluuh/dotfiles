@@ -1,0 +1,6 @@
+if ! command_exists "cargo" || ! is_directory "${HOME}/.cargo"; then
+  return
+fi
+export CARGO_HOME="${HOME}/.cargo"
+export PATH="${CARGO_HOME}/bin:${PATH}"
+

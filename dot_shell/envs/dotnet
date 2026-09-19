@@ -1,0 +1,17 @@
+if ! command_exists "dotnet" || ! is_directory "${HOME}/.dotnet"; then
+  return
+fi
+export DOTNET_ROOT="${HOME}/.dotnet"
+export DOTNET_HOME="${DOTNET_ROOT}"
+export PATH="${DOTNET_ROOT}:${DOTNET_HOME}/tools:${PATH}"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_NOLOGO=1
+export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+
+! is_directory "${HOME}/.aspire" && return
+export ASPIRE_HOME="${HOME}/.aspire"
+export PATH="${ASPIRE_HOME}/bin:${PATH}"
+
+! command_exists "podman" && return
+export ASPIRE_CONTAINER_RUNTIME=podman

@@ -1,2 +1,3 @@
 ! command_exists "reflector" && return
-alias up-mirrors="sudo reflector --latest 15 --protocol https --fastest 5 --sort age --save /etc/pacman.d/mirrorlist"
+alias up-mirror="sudo reflector --latest 15 --protocol https --fastest 5 --sort age --save /etc/pacman.d/mirrorlist"
+alias view-mirror="cat /etc/pacman.d/mirrorlist"

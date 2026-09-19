@@ -1,0 +1,3 @@
+! command_exists "oh-my-posh" && return
+export POSH_THEME="${XDG_CONFIG_HOME}/oh-my-posh/theme.omp.json"
+
