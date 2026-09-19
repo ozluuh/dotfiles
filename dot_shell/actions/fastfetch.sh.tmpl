@@ -1,3 +1,4 @@
 {{ $cmd := "fastfetch" }}
 ! command_exists "{{ $cmd }}" && return
+is_not_empty_string "${SHELL_INFO_RC}" && return
 {{ $cmd }}
