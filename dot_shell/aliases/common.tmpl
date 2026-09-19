@@ -1,0 +1,6 @@
+{{ template "file_title" }}
+{{ template "file_location" . }}
+exists() {
+  type "${1}" &>/dev/null
+  is_equal "${?}" "0" && echo Yes || echo No
+}
