@@ -1,0 +1,6 @@
+{{ template "file_title" }}
+{{ template "file_location" . }}
+if is_zero_size "${XDG_DATA_HOME}/zinit"; then
+  return
+fi
+export ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"

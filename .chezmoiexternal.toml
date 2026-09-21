@@ -28,3 +28,8 @@
   stripComponents = 3
   refreshPeriod = "2160h"
   include = ["Fluent-icon-theme-master/cursors/dist-dark/**"]
+
+[".local/share/zinit/zinit.git"]
+  type = "git-repo"
+  url = "https://github.com/zdharma-continuum/zinit.git"
+  refreshPeriod = "744h"
