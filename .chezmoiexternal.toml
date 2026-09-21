@@ -1,9 +1,30 @@
 [".config/bat/themes/TokyoNight Night.tmTheme"]
   type = "file"
   url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme"
+  refreshPeriod = "720h"
+
 [".config/bat/themes/TokyoNight Day.tmTheme"]
   type = "file"
   url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme"
+  refreshPeriod = "720h"
+
 [".config/eza/theme.yml"]
   type = "file"
   url = "https://raw.githubusercontent.com/eza-community/eza-themes/main/themes/tokyonight.yml"
+  refreshPeriod = "720h"
+
+[".icons/Colloid-cursors"]
+  type = "archive"
+  url = "https://github.com/vinceliuice/Colloid-icon-theme/archive/main.tar.gz"
+  exact = true
+  stripComponents = 3
+  refreshPeriod = "720h"
+  include = ["Colloid-icon-theme-main/cursors/dist/**"]
+
+[".icons/Colloid-dark-cursors"]
+  type = "archive"
+  url = "https://github.com/vinceliuice/Colloid-icon-theme/archive/main.tar.gz"
+  exact = true
+  stripComponents = 3
+  refreshPeriod = "720h"
+  include = ["Colloid-icon-theme-main/cursors/dist-dark/**"]
