@@ -13,18 +13,26 @@
   url = "https://raw.githubusercontent.com/eza-community/eza-themes/main/themes/tokyonight.yml"
   refreshPeriod = "720h"
 
-[".icons/Colloid-cursors"]
+[".icons/Fluent-cursors"]
   type = "archive"
-  url = "https://github.com/vinceliuice/Colloid-icon-theme/archive/main.tar.gz"
+  url = "https://github.com/vinceliuice/Fluent-icon-theme/archive/master.tar.gz"
   exact = true
   stripComponents = 3
   refreshPeriod = "720h"
-  include = ["Colloid-icon-theme-main/cursors/dist/**"]
+  include = ["Fluent-icon-theme-master/cursors/dist/**"]
 
-[".icons/Colloid-dark-cursors"]
+[".icons/Fluent-dark-cursors"]
   type = "archive"
-  url = "https://github.com/vinceliuice/Colloid-icon-theme/archive/main.tar.gz"
+  url = "https://github.com/vinceliuice/Fluent-icon-theme/archive/master.tar.gz"
   exact = true
   stripComponents = 3
   refreshPeriod = "720h"
-  include = ["Colloid-icon-theme-main/cursors/dist-dark/**"]
+  include = ["Fluent-icon-theme-master/cursors/dist-dark/**"]
+
+[".icons/Papirus"]
+  type = "archive"
+  url = "https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/archive/master.tar.gz"
+  exact = true
+  stripComponents = 2
+  refreshPeriod = "720h"
+  include = ["papirus-icon-theme-master/Papirus/**"]
