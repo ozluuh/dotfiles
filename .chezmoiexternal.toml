@@ -1,24 +1,24 @@
 [".config/bat/themes/TokyoNight Night.tmTheme"]
   type = "file"
   url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme"
-  refreshPeriod = "720h"
+  refreshPeriod = "2160h"
 
 [".config/bat/themes/TokyoNight Day.tmTheme"]
   type = "file"
   url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme"
-  refreshPeriod = "720h"
+  refreshPeriod = "2160h"
 
 [".config/eza/theme.yml"]
   type = "file"
   url = "https://raw.githubusercontent.com/eza-community/eza-themes/main/themes/tokyonight.yml"
-  refreshPeriod = "720h"
+  refreshPeriod = "2160h"
 
 [".icons/Fluent-cursors"]
   type = "archive"
   url = "https://github.com/vinceliuice/Fluent-icon-theme/archive/master.tar.gz"
   exact = true
   stripComponents = 3
-  refreshPeriod = "720h"
+  refreshPeriod = "2160h"
   include = ["Fluent-icon-theme-master/cursors/dist/**"]
 
 [".icons/Fluent-dark-cursors"]
@@ -26,13 +26,5 @@
   url = "https://github.com/vinceliuice/Fluent-icon-theme/archive/master.tar.gz"
   exact = true
   stripComponents = 3
-  refreshPeriod = "720h"
+  refreshPeriod = "2160h"
   include = ["Fluent-icon-theme-master/cursors/dist-dark/**"]
-
-[".icons/Papirus"]
-  type = "archive"
-  url = "https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/archive/master.tar.gz"
-  exact = true
-  stripComponents = 2
-  refreshPeriod = "720h"
-  include = ["papirus-icon-theme-master/Papirus/**"]
