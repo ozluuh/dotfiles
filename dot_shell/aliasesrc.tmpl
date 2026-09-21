@@ -8,7 +8,9 @@ alias grep='grep --color=auto'
 #---------- Typos ---------------------------------------------------#
 alias zz='exit'
 alias quit='exit'
-alias sh-reload="exec ${SHELL}"
+alias sh-reload="exec ${SHELL_BASENAME}"
+alias sh-reload-profiler="SHELL_PROFILER=true exec ${SHELL_BASENAME}"
+alias sh-reload-verbose="SHELL_VERBOSITY=3 exec ${SHELL_BASENAME}"
 alias ..="cd .."
 alias cd..="cd .."
 #---------- Terminal ------------------------------------------------#

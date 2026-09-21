@@ -1,7 +1,6 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-{{ $cmd := "zoxide" }}
-if ! command_exists "{{ $cmd }}" && ! command_exists "z"; then
+if ! command_exists "zoxide" && ! command_exists "z"; then
   return
 fi
-eval "$({{ $cmd }} init ${SHELL_BASENAME})"
+eval "$(zoxide init ${SHELL_BASENAME})"
