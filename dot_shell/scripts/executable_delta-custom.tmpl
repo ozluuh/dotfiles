@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+{{ template "file_title" "Toggle color scheme between dark and light" }}
+{{ template "file_location" . }}
+background_theme="dark"
+
+case "${OSTYPE}" in
+  linux*)
+    if [[ "${XDG_SESSION_DESKTOP}" =~ "gnome" ]]; then
+      color_theme="$(gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null)"
+      [[ "${color_theme}" =~ "default" ]] && background_theme="light"
+    fi
+    ;;
+  *) ;;
+esac
+
+case "${background_theme}" in
+  dark)
+    delta --features dark-theme "${@}"
+    ;;
+  light)
+    delta --features light-theme "${@}"
+    ;;
+  *)
+    warn "Invalid background_theme value. Current: '${background_theme}'"
+    warn "Please set it to either 'dark' or 'light'."
+    exit 1
+  ;;
+esac

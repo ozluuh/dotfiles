@@ -25,3 +25,25 @@
 [commit]
   gpgsign = true
 {{ end -}}
+
+[merge]
+  conflictStyle = zdiff3
+
+[core]
+  pager = delta-custom # Run wrapper
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  line-numbers=true
+  side-by-side=true
+
+[delta "light-theme"]
+  light = true
+  syntax-theme = TokyoNight Day
+
+[delta "dark-theme"]
+  light = dark
+  syntax-theme = TokyoNight Night
