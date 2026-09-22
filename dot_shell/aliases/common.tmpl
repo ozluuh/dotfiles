@@ -1,7 +1,8 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
 exists() {
-  if is_empty_string "$(type -t "${1}")"; then
+  type "${1}" &>/dev/null
+  if is_not_equal "${?}" "0"; then
     echo No
     return
   fi
