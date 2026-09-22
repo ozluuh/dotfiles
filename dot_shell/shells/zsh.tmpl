@@ -5,27 +5,16 @@ command_exists() {
   (( $+commands[${1}] || $+functions[${1}] || $+aliases[${1}] || $+builtins[${1}] ))
 }
 #---------- Env -----------------------------------------------------#
+export SHELL_DIR_COMPLETION="${XDG_DATA_HOME}/zsh-completion/completions"
 # remove empty components to avoid '::' ending up
 # resulting in './' being in $PATH, etc
 path=( "${path[@]:#}" )
-fpath=( "${fpath[@]:#}" )
+fpath=( "${fpath[@]:#}" ${SHELL_DIR_COMPLETION} )
 infopath=( "${infopath[@]:#}" )
 manpath=( "${manpath[@]:#}" )
 # remove duplicates from some env vars
 typeset -gU cdpath CPPFLAGS cppflags FPATH fpath infopath
 typeset -gU LDFLAGS ldflags MANPATH manpath PATH path PKG_CONFIG_PATH
-# export SHELL_DIR_COMPLETION="${XDG_DATA_HOME}/bash-completion/completions"
 
 try_load_file "${SHELL_SHELLS_HOME}/zshbindsrc"
-#---------- Completions ---------------------------------------------#
-# if ! command_exists _completion_loader; then
-#   try_load_file "/etc/bash_completion"
-#   try_load_file "/usr/share/bash-completion/bash_completion"
-# fi
-
-# if is_directory "${SHELL_DIR_COMPLETION}"; then
-#   for file in ${SHELL_DIR_COMPLETION}/*; do
-#     try_load_file "${file}"
-#   done
-# fi
 #--------------------------------------------------------------------#

@@ -56,19 +56,26 @@ to_completion() {
   fi
   ensure_dir_exists "${SHELL_DIR_COMPLETION}"
   local filename="${1%% *}"
+  if is_zsh; then
+    filename="_${1%% *}"
+  fi
   eval "${1}" > "${SHELL_DIR_COMPLETION}/${filename}"
   is_non_zero_size "${SHELL_DIR_COMPLETION}/${filename}" && \
     echo "Created '${filename}' in '${SHELL_DIR_COMPLETION}'"
 }
 
-to_completions() {
+completions() {
   if is_empty_string "${1}"; then
     echo "Error: Enter the full command. Ex: my_tool completion bash | to_completions my_tool" >&2
     return 1
   fi
   ensure_dir_exists "${SHELL_DIR_COMPLETION}"
-  cat > "${SHELL_DIR_COMPLETION}/${1}"
-  is_non_zero_size "${SHELL_DIR_COMPLETION}/${1}" && echo "Created '${1}' in '${SHELL_DIR_COMPLETION}'"
+  local filename="${1}"
+  if is_zsh; then
+    filename="_${1}"
+  fi
+  cat > "${SHELL_DIR_COMPLETION}/${filename}"
+  is_non_zero_size "${SHELL_DIR_COMPLETION}/${filename}" && echo "Created '${filename}' in '${SHELL_DIR_COMPLETION}'"
 }
 #---------- Log -----------------------------------------------------#
 # ${1} - Verbosity level

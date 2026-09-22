@@ -15,7 +15,6 @@ if is_directory "${SHELL_ENV_DIR}"; then
     try_load_file "${file}"
   done
 fi
-try_load_file "${SHELL_DIR}/aliasesrc"
 #---------- Shell ---------------------------------------------------#
 if is_directory "${SHELL_SHELLS_HOME}"; then
   try_load_file "${SHELL_SHELLS_HOME}/${SHELL_BASENAME}"
@@ -33,3 +32,4 @@ if is_directory "${SHELL_FOOTER_DIR}"; then
   done
 fi
 #--------------------------------------------------------------------#
+try_load_file "${SHELL_DIR}/aliasesrc"

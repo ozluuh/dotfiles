@@ -1,5 +1,4 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-{{ $cmd := "fzf" }}
-! command_exists "{{ $cmd }}" && return
-source <({{ $cmd }} --${SHELL_BASENAME})
+! command_exists "fzf" && return
+source <(fzf --${SHELL_BASENAME})

@@ -1,5 +1,4 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-{{ $cmd := "cargo" }}
-! command_exists "{{ $cmd }}" && return
+! command_exists "cargo" && return
 try_load_file "${CARGO_HOME}/env"

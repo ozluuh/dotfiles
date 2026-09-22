@@ -1,6 +1,4 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-if ! command_exists "zoxide" && ! command_exists "z"; then
-  return
-fi
-eval "$(zoxide init ${SHELL_BASENAME})"
+! command_exists "zoxide" && return
+eval "$(zoxide init ${SHELL_BASENAME} --no-cmd)"

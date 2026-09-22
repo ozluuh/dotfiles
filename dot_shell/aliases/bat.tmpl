@@ -1,3 +1,4 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-command_exists "bat" && alias cat="bat"
+! command_exists "bat" && return
+alias cat="bat"

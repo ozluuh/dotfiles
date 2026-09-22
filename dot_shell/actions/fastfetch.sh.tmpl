@@ -1,6 +1,5 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-{{ $cmd := "fastfetch" }}
-! command_exists "{{ $cmd }}" && return
+! command_exists "fastfetch" && return
 is_not_empty_string "${SHELL_INFO_RC}" && return
-{{ $cmd }}
+fastfetch
