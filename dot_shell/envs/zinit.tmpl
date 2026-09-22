@@ -1,6 +1,9 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
 if is_zero_size "${XDG_DATA_HOME}/zinit"; then
-  return
+  debug "$(purple "Env->Ignoring"): '$(orange "zinit")' not found."
+  return 0
 fi
 export ZINIT_HOME="${XDG_DATA_HOME}/zinit/zinit.git"
+debug "$(purple "Env->Loaded"): '$(orange "zinit")' environment variables created."
+return 0

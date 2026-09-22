@@ -2,7 +2,10 @@
 {{ template "file_location" . }}
 if command_exists "vim"; then
   alias vi="vim"
+  debug "$(purple "Alias->Loaded"): '$(orange "vim")' aliases created."
 fi
 if command_exists "nvim"; then
   alias vi="nvim"
+  debug "$(purple "Alias->Loaded"): '$(orange "nvim")' aliases created."
 fi
+return 0

@@ -1,4 +1,9 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "zinit" && return
+if ! command_exists "zinit"; then
+  debug "$(purple "Alias->Ignoring"): '$(orange "zinit")' not found."
+  return 0
+fi
 alias sync-completions='zi creinstall "${SHELL_DIR_COMPLETION}" &>/dev/null'
+debug "$(purple "Alias->Loaded"): '$(orange "zinit")' aliases created."
+return 0

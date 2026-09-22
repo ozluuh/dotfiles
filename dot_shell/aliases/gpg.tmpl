@@ -1,3 +1,9 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
+if ! command_exists "gpg"; then
+  debug "$(purple "Alias->Ignoring"): '$(orange "gpg")' not found."
+  return 0
+fi
 alias gpg-add="gpg --recv-keys"
+debug "$(purple "Alias->Loaded"): '$(orange "gpg")' aliases created."
+return 0

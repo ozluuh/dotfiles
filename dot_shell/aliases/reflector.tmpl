@@ -1,5 +1,10 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "reflector" && return
+if ! command_exists "reflector"; then
+  debug "$(purple "Alias->Ignoring"): '$(orange "reflector")' not found."
+  return 0
+fi
 alias up-mirror="sudo reflector --latest 5 --protocol https --sort age --save /etc/pacman.d/mirrorlist"
 alias view-mirror="cat /etc/pacman.d/mirrorlist"
+debug "$(purple "Alias->Loaded"): '$(orange "reflector")' aliases created."
+return 0

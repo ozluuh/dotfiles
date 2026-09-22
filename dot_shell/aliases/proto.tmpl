@@ -1,6 +1,9 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "proto" && return
+if ! command_exists "proto"; then
+  debug "$(purple "Alias->Ignoring"): '$(orange "proto")' not found."
+  return 0
+fi
 plm() { proto; }
 plm-status() { proto status; }
 plm-status-global() { proto status --config-mode all; }
@@ -10,3 +13,5 @@ plm-add() { proto install ${@}; }
 plm-del() { proto uninstall ${@}; }
 plm-pin() { proto pin "${1}" "${2}"; }
 plm-add-plugin() { proto plugin add "${1}" "${2}"; }
+debug "$(purple "Alias->Loaded"): '$(orange "proto")' aliases created."
+return 0

@@ -1,6 +1,22 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-command_exists "vi" && export EDITOR="vi"
-command_exists "nano" && export EDITOR="nano"
-command_exists "code" && export EDITOR="code --wait"
-is_not_empty_string "${EDITOR}" && export VISUAL="${EDITOR}"
+if command_exists "vim"; then
+  export EDITOR="vim"
+  debug "$(purple "Env->Ignoring"): '$(orange "vim")' environment variables created."
+  return 0
+fi
+if command_exists "nvim"; then
+  export EDITOR="nvim"
+  debug "$(purple "Env->Ignoring"): '$(orange "nvim")' environment variables created."
+  return 0
+fi
+if command_exists "code"; then
+  export EDITOR="code --wait"
+  debug "$(purple "Env->Ignoring"): '$(orange "code")' environment variables created."
+  return 0
+fi
+if is_not_empty_string "${EDITOR}"; then
+  export VISUAL="${EDITOR}"
+  debug "$(purple "Env->Ignoring"): '$(orange "editor/visual")' environment variables created."
+fi
+return 0

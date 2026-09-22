@@ -1,7 +1,8 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
 if ! command_exists "dotnet" || ! is_directory "${HOME}/.dotnet"; then
-  return
+  debug "$(purple "Env->Ignoring"): '$(orange "dotnet")' not found."
+  return 0
 fi
 export DOTNET_ROOT="${HOME}/.dotnet"
 export DOTNET_HOME="${DOTNET_ROOT}"
@@ -10,10 +11,20 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export DOTNET_NOLOGO=1
 export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
 export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+debug "$(purple "Env->Loaded"): '$(orange "dotnet")' environment variables created."
 
-! is_directory "${HOME}/.aspire" && return
+if ! command_exists "aspire" || ! is_directory "${HOME}/.aspire"; then
+  debug "$(purple "Env->Ignoring"): '$(orange "aspire")' not found."
+  return 0
+fi
 export ASPIRE_HOME="${HOME}/.aspire"
 export PATH="${ASPIRE_HOME}/bin:${PATH}"
+debug "$(purple "Env->Loaded"): '$(orange "aspire")' environment variables created."
 
-! command_exists "podman" && return
+if ! command_exists "podman"; then
+  debug "$(purple "Env->Ignoring"): '$(orange "aspire/podman")' not found."
+  return 0
+fi
 export ASPIRE_CONTAINER_RUNTIME=podman
+debug "$(purple "Env->Loaded"): '$(orange "aspire/podman")' environment variables created."
+return 0

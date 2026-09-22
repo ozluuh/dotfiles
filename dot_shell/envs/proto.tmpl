@@ -1,7 +1,10 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
 if ! command_exists "proto" && is_zero_size "${HOME}/.proto"; then
-  return
+  debug "$(purple "Env->Ignoring"): '$(orange "proto")' not found."
+  return 0
 fi
 export PROTO_HOME="${HOME}/.proto"
 export PATH="${PROTO_HOME}/shims:${PROTO_HOME}/bin:${PATH}"
+debug "$(purple "Env->Loaded"): '$(orange "proto")' environment variables created."
+return 0

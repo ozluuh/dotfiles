@@ -1,7 +1,10 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
 if ! command_exists "pnpm" || ! is_directory "${XDG_DATA_HOME}/pnpm"; then
-  return
+  debug "$(purple "Env->Ignoring"): '$(orange "pnpm")' not found."
+  return 0
 fi
 export PNPM_HOME="${XDG_DATA_HOME}/pnpm"
 export PATH="${PNPM_HOME}:${PATH}"
+debug "$(purple "Env->Loaded"): '$(orange "pnpm")' environment variables created."
+return 0

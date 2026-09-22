@@ -1,4 +1,9 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "fd" && return
+if ! command_exists "fd"; then
+  debug "$(purple "Alias->Ignoring"): '$(orange "fd")' not found."
+  return 0
+fi
 alias find="fd"
+debug "$(purple "Alias->Loaded"): '$(orange "fd")' aliases created."
+return 0

@@ -1,5 +1,10 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "zoxide" && return
+if ! command_exists "zoxide"; then
+  debug "$(purple "Alias->Ignoring"): '$(orange "zoxide")' not found."
+  return 0
+fi
 alias cd="__zoxide_z"
 alias cdi="__zoxide_zi"
+debug "$(purple "Alias->Loaded"): '$(orange "zoxide")' aliases created."
+return 0

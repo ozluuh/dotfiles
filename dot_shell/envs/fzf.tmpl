@@ -1,8 +1,13 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "fzf" && return
+if ! command_exists "fzf"; then
+  debug "$(purple "Env->Ignoring"): '$(orange "fzf")' not found."
+  return 0
+fi
 export FZF_CTRL_T_OPTS="
  --style full
  --walker-skip .git,node_modules,target
  --preview 'bat -n --color=always {}'
  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+debug "$(purple "Env->Loaded"): '$(orange "fzf")' environment variables created."
+return 0

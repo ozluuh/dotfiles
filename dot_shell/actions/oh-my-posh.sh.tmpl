@@ -1,12 +1,22 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "oh-my-posh" && return
-is_equal_string "${TERM_PROGRAM}" "Apple_Terminal" && return
+if ! command_exists "oh-my-posh"; then
+  debug "$(purple "Action->Ignoring"): '$(orange "oh-my-posh")' not found."
+  return 0
+fi
+if is_equal_string "${TERM_PROGRAM}" "Apple_Terminal"; then
+  debug "$(purple "Action->Ignoring"): '$(orange "oh-my-posh")' found. Terminal '$(orange "${TERM_PROGRAM}")'. Not compatible."
+  return 0
+fi
 if ! is_bash && ! is_zsh; then
-    return
+  debug "$(purple "Action->Ignoring"): '$(orange "oh-my-posh")' found. Shell '$(orange "${SHELL_BASENAME}")'. Expected [bash, zsh]."
+  return 0
 fi
 if ! is_file "${POSH_THEME}"; then
-    eval "$(oh-my-posh init ${SHELL_BASENAME})"
-    return
+  eval "$(oh-my-posh init ${SHELL_BASENAME})"
+  debug "$(purple "Action->Loaded"): '$(orange "oh-my-posh")' found. Initialized with '$(orange "${SHELL_BASENAME}")' shell. '$(orange "POSH_THEME")' environment not found."
+    return 0
 fi
 eval "$(oh-my-posh init ${SHELL_BASENAME} --config ${POSH_THEME})"
+debug "$(purple "Action->Loaded"): '$(orange "oh-my-posh")' found. Initialized with '$(orange "${SHELL_BASENAME}")' shell. '$(orange "POSH_THEME")' found."
+return 0

@@ -1,5 +1,9 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "fzf" && return
+if ! command_exists "fzf"; then
+  debug "$(purple "Alias->Ignoring"): '$(orange "fzf")' not found."
+  return 0
+fi
 alias history="history | fzf"
-alias h="history"
+debug "$(purple "Alias->Loaded"): '$(orange "fzf")' aliases created."
+return 0

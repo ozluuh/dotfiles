@@ -1,5 +1,10 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "rg" && return
+if ! command_exists "rg"; then
+  debug "$(purple "Alias->Ignoring"): '$(orange "rg")' not found."
+  return 0
+fi
 alias rg="rg --pretty --smart-case --glob=!{.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv}"
 alias grep="rg"
+debug "$(purple "Alias->Loaded"): '$(orange "rg")' aliases created."
+return 0

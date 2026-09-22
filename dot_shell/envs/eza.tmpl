@@ -1,5 +1,10 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "eza" && return
+if ! command_exists "eza"; then
+  debug "$(purple "Env->Ignoring"): '$(orange "eza")' not found."
+  return 0
+fi
 export EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
 unset EZA_COLORS
+debug "$(purple "Env->Loaded"): '$(orange "eza")' environment variables created."
+return 0

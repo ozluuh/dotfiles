@@ -1,4 +1,9 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "cs" && return
+if ! command_exists "cs"; then
+  debug "$(purple "Alias->Ignoring"): '$(orange "cs")' not found."
+  return 0
+fi
 alias cheatsheet="cs"
+debug "$(purple "Alias->Loaded"): '$(orange "cs")' aliases created."
+return 0

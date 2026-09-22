@@ -1,4 +1,11 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
 try_load_file "${ZINIT_HOME}/zinit.zsh"
+if is_not_empty_string "${ZINIT}"; then
+  debug "$(purple "Action->Loaded"): '$(orange "zinit")' found."
+fi
 try_load_file "${SHELL_SHELLS_HOME}/zinitrc"
+if is_non_zero_size "${SHELL_SHELLS_HOME}/zinitrc"; then
+  debug "$(purple "Action->Loaded"): '$(orange "zinitrc")' plugins file."
+fi
+return 0

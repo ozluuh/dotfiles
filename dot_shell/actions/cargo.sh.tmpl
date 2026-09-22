@@ -1,4 +1,9 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "cargo" && return
+if ! command_exists "cargo"; then
+  debug "$(purple "Action->Ignoring"): '$(orange "cargo")' not found."
+  return 0
+fi
 try_load_file "${CARGO_HOME}/env"
+debug "$(purple "Action->Loaded"): '$(orange "cargo")' found."
+return 0

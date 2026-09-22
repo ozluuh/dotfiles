@@ -2,8 +2,11 @@
 {{ template "file_location" . }}
 if command_exists "man"; then
   alias help="man"
+  debug "$(purple "Alias->Loaded"): '$(orange "man")' aliases created."
 fi
 if command_exists "tldr"; then
   alias help="tldr"
   alias tldr-init="tldr --update"
+  debug "$(purple "Alias->Loaded"): '$(orange "tldr")' aliases created."
 fi
+return 0

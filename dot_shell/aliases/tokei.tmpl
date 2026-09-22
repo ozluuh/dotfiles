@@ -1,4 +1,9 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "tokei" && return
+if ! command_exists "tokei"; then
+  debug "$(purple "Alias->Ignoring"): '$(orange "tokei")' not found."
+  return 0
+fi
 alias summarize="tokei --sort files"
+debug "$(purple "Alias->Loaded"): '$(orange "tokei")' aliases created."
+return 0

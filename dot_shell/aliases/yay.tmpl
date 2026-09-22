@@ -1,8 +1,13 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "yay" && return
+if ! command_exists "yay"; then
+  debug "$(purple "Alias->Ignoring"): '$(orange "yay")' not found."
+  return 0
+fi
 alias aur-init="yay -Y --gendb"
 alias aur-up="yay -Syua --answerclean All --answerdiff None --cleanafter --removemake"
 alias aur-add="yay -Sya --answerclean All --answerdiff None --cleanafter --removemake"
 alias aur-rm="yay -Rns"
 alias aur-search="yay -Ssa"
+debug "$(purple "Alias->Loaded"): '$(orange "yay")' aliases created."
+return 0

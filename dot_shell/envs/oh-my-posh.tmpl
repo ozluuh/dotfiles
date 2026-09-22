@@ -1,4 +1,9 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "oh-my-posh" && return
+if ! command_exists "oh-my-posh"; then
+  debug "$(purple "Env->Ignoring"): '$(orange "oh-my-posh")' not found."
+  return 0
+fi
 export POSH_THEME="${XDG_CONFIG_HOME}/oh-my-posh/theme.omp.json"
+debug "$(purple "Env->Loaded"): '$(orange "oh-my-posh")' environment variables created."
+return 0

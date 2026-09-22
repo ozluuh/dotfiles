@@ -1,4 +1,9 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "zoxide" && return
+if ! command_exists "zoxide"; then
+  debug "$(purple "Action->Ignoring"): '$(orange "zoxide")' not found."
+  return 0
+fi
 eval "$(zoxide init ${SHELL_BASENAME} --no-cmd)"
+debug "$(purple "Action->Loaded"): '$(orange "zoxide")' found. Initialized with '$(orange "${SHELL_BASENAME}")' shell. '$(orange "--no-cmd")' args passed."
+return 0

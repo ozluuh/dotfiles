@@ -1,5 +1,13 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-! command_exists "fastfetch" && return
-is_not_empty_string "${SHELL_INFO_RC}" && return
+if ! command_exists "fastfetch"; then
+  debug "$(purple "Action->Ignoring"): '$(orange "fastfetch")' not found."
+  return 0
+fi
+if is_not_empty_string "${SHELL_INFO_RC}"; then
+  debug "$(purple "Action->Ignoring"): '$(orange "fastfetch")' found. '$(orange "SHELL_INFO_RC")' environment found."
+  return 0
+fi
 fastfetch
+debug "$(purple "Action->Loaded"): '$(orange "fastfetch")' found."
+return 0
