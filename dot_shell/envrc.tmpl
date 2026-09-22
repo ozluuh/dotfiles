@@ -19,7 +19,7 @@ export SHELL_SCRIPTS_HOME="${SHELL_DIR}/scripts"
 export SHELL_DIR_COMPLETION="${SHELL_DIR}/completions"
 
 # Cache to avoid calling repeatedly
-export SHELL_BASENAME="$(basename "$(ps -p $$ -ocmd=)")"
+export SHELL_BASENAME="$(basename "$(ps -p $$ -o comm= | awk '{print $1}' | tr -d '-')")"
 #---------- Default -------------------------------------------------#
 export LANG='en_US.UTF-8'
 # Setting LC_ALL overrides all other LC_* variables.
