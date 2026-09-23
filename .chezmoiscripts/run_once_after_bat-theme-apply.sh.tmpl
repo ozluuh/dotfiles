@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+{{ template "file_title" "Generates `bat` theme caches at least once." }}
+{{ template "file_location" . }}
+if ! command -v bat; then
+  return
+fi
+
+bat cache --build

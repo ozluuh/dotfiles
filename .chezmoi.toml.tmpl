@@ -8,6 +8,12 @@
 {{-   $gpgKeyId = onepasswordRead $gpgKeyUrl -}}
 {{- end -}}
 
+encryption = "age"
+
+[age]
+  identity = "~/.config/chezmoi/key.txt"
+  recipient = "age1s5yywzrnjtfhar9s0us0vfamzuhw6lh6p9x8f3rqvhzkczpjsa3qx65q3c"
+
 [data]
   name = {{ $name | trim | lower | title | quote }}
   username = {{ $username | trim | quote }}
