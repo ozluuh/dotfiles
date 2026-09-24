@@ -3,17 +3,14 @@
 if command_exists "vim"; then
   export EDITOR="vim"
   debug "$(purple "Env->Ignoring"): '$(orange "vim")' environment variables created."
-  return 0
 fi
 if command_exists "nvim"; then
   export EDITOR="nvim"
   debug "$(purple "Env->Ignoring"): '$(orange "nvim")' environment variables created."
-  return 0
 fi
 if command_exists "code"; then
   export EDITOR="code --wait"
   debug "$(purple "Env->Ignoring"): '$(orange "code")' environment variables created."
-  return 0
 fi
 if is_not_empty_string "${EDITOR}"; then
   export VISUAL="${EDITOR}"

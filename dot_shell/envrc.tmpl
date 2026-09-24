@@ -21,11 +21,16 @@ export SHELL_DIR_COMPLETION="${SHELL_DIR}/completions"
 # Cache to avoid calling repeatedly
 export SHELL_BASENAME="$(basename "$(ps -p $$ -o comm= | awk '{print $1}' | tr -d '-')")"
 #---------- Default -------------------------------------------------#
-export LANG='en_US.UTF-8'
+export LANG="en_US.UTF-8"
+export LC_NUMERIC="pt_BR.UTF-8"
+export LC_TIME="pt_BR.UTF-8"
+export LC_MONETARY="pt_BR.UTF-8"
+export LC_PAPER="pt_BR.UTF-8"
+export LC_MEASUREMENT="pt_BR.UTF-8"
 # Setting LC_ALL overrides all other LC_* variables.
 # LANG is kept as a fallback.
-export LC_ALL='en_US.UTF-8'
-export LESSCHARSET='utf-8'
+export LC_ALL="en_US.UTF-8"
+export LESSCHARSET="utf-8"
 
 # Cache the architecture check to avoid calling `uname` repeatedly
 export ARCH="${ARCH:-"$(uname -m)"}"
