@@ -1,6 +1,6 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-if ! command_exists "cargo" || ! is_directory "${HOME}/.cargo"; then
+if ! is_directory "${HOME}/.cargo"; then
   debug "$(purple "Env->Ignoring"): '$(orange "cargo")' not found."
   return 0
 fi

@@ -1,6 +1,6 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-if ! command_exists "proto" && is_zero_size "${HOME}/.proto"; then
+if is_zero_size "${HOME}/.proto"; then
   debug "$(purple "Env->Ignoring"): '$(orange "proto")' not found."
   return 0
 fi

@@ -1,6 +1,6 @@
 {{ template "file_title" }}
 {{ template "file_location" . }}
-if ! command_exists "dotnet" || ! is_directory "${HOME}/.dotnet"; then
+if ! is_directory "${HOME}/.dotnet"; then
   debug "$(purple "Env->Ignoring"): '$(orange "dotnet")' not found."
   return 0
 fi
