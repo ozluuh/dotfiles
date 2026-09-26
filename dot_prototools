@@ -1,4 +1,4 @@
-biome = "1.9.4"
+biome = "2.5.14"
 npm = "11.7.0"
 pnpm = "10.26.2"
 poetry = "2.2.1"
@@ -6,6 +6,8 @@ air = "1.63.4"
 node = "25.2.1"
 go = "1.25.5"
 gitleaks = "8.30.0"
+dotnet = "10.0.401"
+python = "3.14.7"
 
 [settings]
 auto-install = true
@@ -16,3 +18,4 @@ telemetry = false
 flutter = "github://KonstantinKai/proto-flutter-plugin"
 act = "https://raw.githubusercontent.com/theomessin/proto-toml-plugins/master/act.toml"
 air = "https://raw.githubusercontent.com/jamesukiyo/proto-plugins/master/air.toml"
+dotnet = "https://raw.githubusercontent.com/RemiKalbe/proto-dotnet-plugin/main/plugin.toml"
